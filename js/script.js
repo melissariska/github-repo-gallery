@@ -5,7 +5,7 @@ const repoList = document.querySelector(".repo-list");
 const allReposContainer = document.querySelector(".repos");
 const repoData = document.querySelector(".repo-data");
 const backToRepoButton = document.querySelector(".view-repos");
-const filterInput = document.querySelector("filter-repos");
+const filterInput = document.querySelector(".filter-repos");
 
 const gitProfileInfo = async function () {
    const profileInfo = await fetch(`https://api.github.com/users/${username}`);
@@ -97,7 +97,7 @@ filterInput.addEventListener("input", function (e) {
 
   for (const repo of repos) {
     const repoLowerText = repo.innerText.toLowerCase();
-    if (repoLowerText.include(searchLowerText)) {
+    if (repoLowerText.includes(searchLowerText)) {
       repo.classList.remove("hide");
     } else {
       repo.classList.add("hide");
